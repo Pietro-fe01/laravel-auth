@@ -11,6 +11,7 @@
                     <th scope="col">Customer name</th>
                     <th scope="col">Description</th>
                     <th scope="col">Slug</th>
+                    <th scope="col">Actions</th>
                 </tr>
             </thead>
             <tbody>
@@ -21,6 +22,17 @@
                     <td>{{ $project->customer_name }}</td>
                     <td>{{ $project->description }}</td>
                     <td>{{ $project->slug }}</td>
+                    <td>
+                        <div class="dropdown">
+                            <a class="btn btn-primary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Info
+                            </a>
+                            
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="{{ route('admin.projects.show', $project->id) }}">Show details</a></li>
+                            </ul>
+                        </div>
+                    </td>
                 </tr>
                 @endforeach
             </tbody>
