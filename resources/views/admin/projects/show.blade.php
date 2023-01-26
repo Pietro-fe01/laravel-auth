@@ -17,5 +17,8 @@
         <p>{{ $project->description }}</p>
     </div>
 
-    {{-- <a href="{{  }}"></a> --}}
+    <div class="mt-5">
+        <a href="{{ route('admin.projects.index') }}" class="btn btn-secondary">Projects List</a>
+        <a href="{{ route('admin.projects.edit', $project) }}" class="btn btn-success">Edit this project</a>
+    </div>
 @endsection

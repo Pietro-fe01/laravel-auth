@@ -85,7 +85,7 @@ class ProjectController extends Controller
         $project->slug = Str::slug($data['project_title']);
         $project->update($data);
 
-        return redirect()->route('admin.projects.index');
+        return redirect()->route('admin.projects.show', $project);
     }
 
     /**
