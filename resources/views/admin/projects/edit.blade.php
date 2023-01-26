@@ -1,5 +1,9 @@
 @extends('layouts.admin')
 
+@section('page-title')
+    Edit {{ $project->project_title }}
+@endsection
+
 @section('content')
     <h1 class="my-3">Editing project "{{ $project->project_title }}"</h1>
 

@@ -1,5 +1,9 @@
 @extends('layouts.admin')
 
+@section('page-title')
+    {{ $project->project_title }}
+@endsection
+
 @section('content')
     <h1 class="text-decoration-underline my-3">{{ $project->project_title }}</h1>
 

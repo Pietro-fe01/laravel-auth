@@ -1,5 +1,9 @@
 @extends('layouts.admin')
 
+@section('page-title')
+    New project
+@endsection
+
 @section('content')
     <h1 class="my-3">Creating new project</h1>
 
