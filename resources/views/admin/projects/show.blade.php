@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('content')
-    <h1 class="text-decoration-underline pt-3">{{ $project->project_title }}</h1>
+    <h1 class="text-decoration-underline my-3">{{ $project->project_title }}</h1>
 
     <div>
         <h3 class="m-0 mt-4">Customer:</h3>
