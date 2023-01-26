@@ -52,7 +52,11 @@
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link text-white 
-                                    {{ Route::currentRouteName() == 'admin.projects.index' ? 'bg-secondary' : '' }}"
+                                    {{ Route::currentRouteName() == 'admin.projects.index' ? 'bg-secondary' : '' }}
+                                    {{ Route::currentRouteName() == 'admin.projects.create' ? 'bg-secondary' : '' }}
+                                    {{ Route::currentRouteName() == 'admin.projects.show' ? 'bg-secondary' : '' }}
+                                    {{ Route::currentRouteName() == 'admin.projects.edit' ? 'bg-secondary' : '' }}
+                                    "
                                     href="{{route('admin.projects.index')}}">
                                         <i class="fa-regular fa-note-sticky fa-lg fa-fw"></i> Projects
                                     </a>
