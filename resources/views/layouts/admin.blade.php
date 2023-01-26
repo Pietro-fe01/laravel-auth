@@ -51,8 +51,11 @@
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link text-white {{ Route::currentRouteName() == 'admin.projects.index' ? 'bg-secondary' : '' }}" href="{{route('admin.projects.index')}}">
-                                        <i class="fa-regular fa-note-sticky"></i> Projects
+                                    <a class="nav-link text-white 
+                                    {{ Route::currentRouteName() == 'admin.projects.index' ? 'bg-secondary' : '' }}
+                                    {{ Route::currentRouteName() == 'admin.projects.show' ? 'bg-secondary' : '' }}"
+                                    href="{{route('admin.projects.index')}}">
+                                        <i class="fa-regular fa-note-sticky fa-lg fa-fw"></i> Projects
                                     </a>
                                 </li>
                             </ul>

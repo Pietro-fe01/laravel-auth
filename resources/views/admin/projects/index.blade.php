@@ -1,7 +1,11 @@
 @extends('layouts.admin')
 
 @section('content')
-    <h1 class="my-3">Projects List</h1>
+    <div class="d-flex align-items-center justify-content-between">
+        <h1 class="my-3">Projects List</h1>
+        <a href="{{ route('admin.projects.create') }}" class="btn btn-success">Create new project</a>
+    </div>
+
     <div class="table-responsive">
         <table class="table table-bordered table-hover align-middle">
             <thead>
@@ -29,7 +33,7 @@
                             </a>
                             
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="{{ route('admin.projects.show', $project->id) }}">Show details</a></li>
+                                <li><a class="dropdown-item" href="{{ route('admin.projects.show', $project) }}">Show details</a></li>
                             </ul>
                         </div>
                     </td>

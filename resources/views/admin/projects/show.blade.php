@@ -12,9 +12,4 @@
         <h3 class="m-0 mt-4">Description:</h3>
         <p>{{ $project->description }}</p>
     </div>
-
-    <div>
-        <h3>Site-Slug</h3>
-        <span>{{ $project->slug }}</span>
-    </div>
 @endsection
