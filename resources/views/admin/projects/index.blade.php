@@ -1,5 +1,9 @@
 @extends('layouts.admin')
 
+@section('page-title')
+    Projects
+@endsection
+
 @section('content')
     <div class="my-3 d-flex align-items-center justify-content-between">
         <h1>Projects List</h1>
