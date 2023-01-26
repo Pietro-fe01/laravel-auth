@@ -58,7 +58,7 @@
                                     {{ Route::currentRouteName() == 'admin.projects.edit' ? 'bg-secondary' : '' }}
                                     "
                                     href="{{route('admin.projects.index')}}">
-                                        <i class="fa-regular fa-note-sticky fa-lg fa-fw"></i> Projects
+                                        <i class="fa-solid fa-diagram-project fa-lg fa-fw"></i> Projects
                                     </a>
                                 </li>
                             </ul>
