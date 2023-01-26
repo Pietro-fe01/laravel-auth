@@ -34,6 +34,7 @@
                             
                             <ul class="dropdown-menu">
                                 <li><a class="dropdown-item" href="{{ route('admin.projects.show', $project) }}">Show details</a></li>
+                                <li><a class="dropdown-item" href="{{ route('admin.projects.edit', $project) }}">Edit</a></li>
                             </ul>
                         </div>
                     </td>
