@@ -7,7 +7,7 @@
 @section('content')
     <h1 class="my-3">Creating new project</h1>
 
-    <form action="{{ route('admin.projects.store') }}" method="POST">
+    <form action="{{ route('admin.projects.store') }}" method="POST" enctype="multipart/form-data">
         @csrf
         <div class="mb-3">
             <label class="d-block" for="project_title" class="form-label">Title</label>
@@ -29,6 +29,14 @@
             <label class="d-block" for="description" class="form-label">Description</label>
             <textarea name="description" id="description" cols="30" rows="5" class="form-control @error('description') is-invalid @enderror">{{ old('description') }}</textarea>
             @error('description')
+                <div class="alert alert-danger">{{ $message }}</div>
+            @enderror
+        </div>
+
+        <div class="mb-3">
+            <label class="d-block" for="cover_image" class="form-label">Cover image</label>
+            <input type="file" id="cover_image" name="cover_image" class="form-control @error('cover_image') is-invalid @enderror">
+            @error('cover_image')
                 <div class="alert alert-danger">{{ $message }}</div>
             @enderror
         </div>

@@ -17,6 +17,13 @@
         <p>{{ $project->description }}</p>
     </div>
 
+    @if ( $project->cover_image )
+        <div>
+            <img class="fluid-img w-50" src="{{ asset("storage/$project->cover_image") }}" alt="{{ $project->project_title }}">
+        </div>
+    @endif
+
+    {{-- Nav links --}}
     <div class="mt-5">
         <a href="{{ route('admin.projects.index') }}" class="btn btn-secondary">Projects List</a>
         <a href="{{ route('admin.projects.edit', $project) }}" class="btn btn-success">Edit this project</a>
