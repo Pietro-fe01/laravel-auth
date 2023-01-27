@@ -9,5 +9,5 @@ class Project extends Model
 {
     use HasFactory;
 
-    protected $guarded = ['slug'];
+    protected $guarded = ['slug', 'cover_image'];
 }

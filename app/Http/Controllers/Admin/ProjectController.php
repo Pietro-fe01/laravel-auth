@@ -45,13 +45,14 @@ class ProjectController extends Controller
 
         $new_project = new Project();
             $new_project->fill($data);
-            $new_project->slug = Str::slug($new_project->project_title);
-            
+
             if ( isset($data['cover_image']) ) {
                 $img_path = Storage::disk('public')->put('uploads', $data['cover_image']);
                 $new_project->cover_image = $img_path;
             };
-            
+
+            $new_project->slug = Str::slug($new_project->project_title);
+
         $new_project->save();
 
         return redirect()->route('admin.projects.show', $new_project);
@@ -89,7 +90,14 @@ class ProjectController extends Controller
     public function update(UpdateProjectRequest $request, Project $project)
     {
         $data = $request->validated();
+
+        if ( isset($data['cover_image']) ) {
+            $img_path = Storage::disk('public')->put('uploads', $data['cover_image']);
+            $project->cover_image = $img_path;
+        };
+
         $project->slug = Str::slug($data['project_title']);
+
         $project->update($data);
 
         return redirect()->route('admin.projects.show', $project);

@@ -35,10 +35,25 @@
 
         <div class="mb-3">
             <label class="d-block" for="cover_image" class="form-label">Cover image</label>
-            <input type="file" id="cover_image" name="cover_image" class="form-control @error('cover_image') is-invalid @enderror">
+            <input type="file" id="cover_image" name="cover_image" class="form-control @error('cover_image') is-invalid @enderror" onchange="loadFile(event)">
             @error('cover_image')
-                <div class="alert alert-danger">{{ $message }}</div>
+            <div class="alert alert-danger">{{ $message }}</div>
             @enderror
+            
+            <div class="my-4">
+                <img id="output" src="" class="fluid-img w-25">
+            </div>
+
+            <script>
+                var loadFile = function(event) {
+                    var reader = new FileReader();
+                    reader.onload = function(){
+                        var output = document.getElementById('output');
+                        output.src = reader.result;
+                    };
+                    reader.readAsDataURL(event.target.files[0]);
+                };
+            </script>
         </div>
 
         <button type="submit" class="btn btn-success">CREATE</button>

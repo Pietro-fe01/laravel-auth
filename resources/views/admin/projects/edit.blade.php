@@ -7,7 +7,7 @@
 @section('content')
     <h1 class="my-3">Editing project "{{ $project->project_title }}"</h1>
 
-    <form action="{{ route('admin.projects.update', $project) }}" method="POST">
+    <form action="{{ route('admin.projects.update', $project) }}" method="POST" enctype="multipart/form-data">
         @csrf
         @method('PUT')
         <div class="mb-3">
@@ -32,6 +32,29 @@
             @error('description')
                 <div class="alert alert-danger">{{ $message }}</div>
             @enderror
+        </div>
+
+        <div class="mb-3">
+            <label class="d-block" for="cover_image" class="form-label">Cover image</label>
+            <input type="file" id="cover_image" name="cover_image" class="form-control @error('cover_image') is-invalid @enderror" onchange="loadFile(event)">
+            @error('cover_image')
+            <div class="alert alert-danger">{{ $message }}</div>
+            @enderror
+            
+            <div class="my-4">
+                <img id="output" @if( $project->cover_image ) src="{{ asset("storage/$project->cover_image") }}" alt="img-preview" @endif class="fluid-img w-25">
+            </div>
+
+            <script>
+                var loadFile = function(event) {
+                    var reader = new FileReader();
+                    reader.onload = function(){
+                        var output = document.getElementById('output');
+                        output.src = reader.result;
+                    };
+                    reader.readAsDataURL(event.target.files[0]);
+                };
+            </script>
         </div>
 
         <button type="submit" class="btn btn-success">EDIT</button>
