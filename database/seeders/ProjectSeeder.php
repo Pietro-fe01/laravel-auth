@@ -17,6 +17,7 @@ class ProjectSeeder extends Seeder
      */
     public function run(Faker $faker)
     {
+        // To refresh every record in DB without rollback
         Project::truncate();
 
         for ($i=0; $i < 15; $i++) {

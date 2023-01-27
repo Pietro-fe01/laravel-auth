@@ -44,12 +44,13 @@
                     <div class="alert alert-danger">{{ $message }}</div>
                     @enderror
                 </div>
-                <div class="form-check form-switch ">
-                    <input class="form-check-input" type="checkbox" role="switch" id="remove_image" name="remove_image">
-                    <label class="form-check-label" for="remove_image">Remove image</label>
-                </div>
+                @if ( $project->cover_image )
+                    <div class="form-check form-switch ">
+                        <input class="form-check-input" type="checkbox" role="switch" id="remove_image" name="remove_image">
+                        <label class="form-check-label" for="remove_image">Remove image</label>
+                    </div>
+                @endif
             </div>
-
             
             <div class="my-4">
                 <img id="output" @if( $project->cover_image ) src="{{ asset("storage/$project->cover_image") }}" alt="img-preview" @endif class="fluid-img w-25">
@@ -60,13 +61,15 @@
                     const inputCheckBox = document.getElementById('remove_image');
                     const inputFile = document.getElementById('cover_image');
                     
-                    inputCheckBox.addEventListener('change', function(){
-                        if ( inputCheckBox.checked ) {
-                            return inputFile.disabled = true;
-                        } else {
-                            return inputFile.disabled = false;
-                        }
-                    });
+                    if ( inputCheckBox ) {
+                        inputCheckBox.addEventListener('change', function(){
+                            if ( inputCheckBox.checked ) {
+                                return inputFile.disabled = true;
+                            } else {
+                                return inputFile.disabled = false;
+                            }
+                        });
+                    }
 
                 // Function display preview image
                     var loadFile = function(event) {
