@@ -35,7 +35,7 @@
 
         <div class="mb-3">
             <label class="d-block" for="cover_image" class="form-label">Cover image</label>
-            <input type="file" id="cover_image" name="cover_image" class="form-control @error('cover_image') is-invalid @enderror" onchange="loadFile(event)">
+            <input type="file" id="cover_image" name="cover_image" class="form-control w-50  @error('cover_image') is-invalid @enderror" onchange="loadFile(event)">
             @error('cover_image')
             <div class="alert alert-danger">{{ $message }}</div>
             @enderror
