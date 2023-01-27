@@ -43,12 +43,15 @@ class ProjectController extends Controller
     {
         $data = $request->validated();
 
-        $img_path = Storage::disk('public')->put('uploads', $data['cover_image']);
-
         $new_project = new Project();
             $new_project->fill($data);
             $new_project->slug = Str::slug($new_project->project_title);
-            $new_project->cover_image = $img_path;
+            
+            if ( isset($data['cover_image']) ) {
+                $img_path = Storage::disk('public')->put('uploads', $data['cover_image']);
+                $new_project->cover_image = $img_path;
+            };
+            
         $new_project->save();
 
         return redirect()->route('admin.projects.show', $new_project);
