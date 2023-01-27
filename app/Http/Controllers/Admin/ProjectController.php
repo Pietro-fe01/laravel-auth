@@ -92,6 +92,10 @@ class ProjectController extends Controller
         $data = $request->validated();
 
         if ( isset($data['cover_image']) ) {
+            // Removing old img in DB before adding new
+            if ( $project->cover_image ) {
+                Storage::disk('public')->delete($project->cover_image);
+            }
             $img_path = Storage::disk('public')->put('uploads', $data['cover_image']);
             $project->cover_image = $img_path;
         };
@@ -112,6 +116,11 @@ class ProjectController extends Controller
     public function destroy(Project $project)
     {
         $id = $project->id;
+
+        if ( $project->cover_image ) {
+            Storage::disk('public')->delete($project->cover_image);
+        }
+
         $project->delete();
 
         return redirect()->route('admin.projects.index')->with('message', "Il progetto con ID numero $id è stato cancellato con successo.");
