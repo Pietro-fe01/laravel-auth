@@ -102,6 +102,11 @@ class ProjectController extends Controller
 
         $project->slug = Str::slug($data['project_title']);
 
+        if ( isset( $data['remove_image'] ) && $project->cover_image ) {
+            Storage::disk('public')->delete($project->cover_image);
+            $project->cover_image = null;
+        }
+
         $project->update($data);
 
         return redirect()->route('admin.projects.show', $project);
